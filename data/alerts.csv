@@ -1,0 +1,4 @@
+personid,alert,notes,startdate,enddate,severity,category
+694578,Attendance Shotage,You have shortage in attendance.,1/6/2021,1/9/2021,high,studentalert
+694578,Pending College Fee,"Next Friday (June 26th, 2021) is the last day to pay your semester fee.",1/6/2021,31/6/2021,low,studentalert
+458961,Pending College Fee,"Next Friday (June 26th, 2021) is the last day to pay your semester fee.",1/7/2021,31/6/2022,low,studentalert

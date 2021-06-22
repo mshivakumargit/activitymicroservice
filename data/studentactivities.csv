@@ -1,0 +1,26 @@
+id,studentid,action,type,indicator,activitydate
+1,752147,Reading in Library,Library Usage,Facilities Engagement,6/1/2021
+2,752147,Borrowed Book,Library Usage,Facilities Engagement,6/2/2021
+3,752147,Returned Book,Library Usage,Facilities Engagement,6/3/2021
+4,752147,On Time,Attendance,Attendance,6/4/2021
+5,752147,Absent,Attendance,Attendance,6/5/2021
+6,752147,Late,Attendance,Attendance,6/6/2021
+7,752147,Booked Appointment,Advisor Interactions,Staff Engagement,6/7/2021
+8,755444,Cancelled Appointment,Advisor Interactions,Staff Engagement,6/8/2021
+9,752147,Adoc Interaction,Advisor Interactions,Staff Engagement,6/9/2021
+10,755444,Cancelled Appointment,Advisor Interactions,Staff Engagement,6/10/2021
+11,755444,Applied,Financial Aid,finances,6/11/2021
+12,694578,Rejected,Financial Aid,finances,6/12/2021
+13,752147,Recevied,Financial Aid,finances,6/13/2021
+14,458961,Membership,Book Club,Student Social Engagement,6/14/2021
+15,458961,Membership,Book Club,Student Social Engagement,6/15/2021
+16,458961,Applied,Scholarship,finances,6/16/2021
+17,694578,Rejected,Scholarship,finances,6/17/2021
+18,458961,Recevied,Scholarship,finances,6/18/2021
+19,458961,Submitted,Assignments,Assignments Engagement,6/19/2021
+20,458961,Submitted Late,Assignments,Assignments Engagement,6/20/2021
+21,694578,Never Submitted,Assignments,Assignments Engagement,6/21/2021
+22,694578,Noticed,Assignments,Assignments Engagement,6/12/2021
+23,752147,Paid,College Fee,College Fee,6/12/2021
+24,755444,Paid with Fine,College Fee,College Fee,6/13/2021
+25,458961,Partially Paid ,College Fee,College Fee,6/14/2021

@@ -1,0 +1,13 @@
+mongoimport /host:localhost /port:27017 /db:activitysystemdb /collection:indicators /headerline /file:C:\Users\shivakumarm\Desktop\Hackathon\indicators.csv /type:csv
+
+mongoimport /host:localhost /port:27017 /db:activitysystemdb /collection:activitytypes /headerline /file:C:\Users\shivakumarm\Desktop\Hackathon\activitytypes.csv /type:csv
+
+mongoimport /host:localhost /port:27017 /db:activitysystemdb /collection:activities /headerline /file:C:\Users\shivakumarm\Desktop\Hackathon\activities.csv /type:csv
+
+mongoimport /host:localhost /port:27017 /db:activitysystemdb /collection:studentactivities /headerline /file:C:\Users\shivakumarm\Desktop\Hackathon\studentactivities.csv /type:csv
+
+mongoimport /host:localhost /port:27017 /db:activitysystemdb /collection:students /headerline /file:C:\Users\shivakumarm\Desktop\Hackathon\students.csv /type:csv
+
+mongoimport /host:localhost /port:27017 /db:activitysystemdb /collection:alerts /headerline /file:C:\Users\shivakumarm\Desktop\Hackathon\alerts.csv /type:csv
+
+mongoimport /host:localhost /port:27017 /db:activitysystemdb /collection:alerttypes /headerline /file:C:\Users\shivakumarm\Desktop\Hackathon\alerttypes.csv /type:csv

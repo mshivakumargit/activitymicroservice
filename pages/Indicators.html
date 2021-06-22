@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+​
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Indicators</title>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>     
+    <div class="container-fluid">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Name</span>
+            <input id="txtname" type="text" class="form-control"  autocomplete="off">
+        </div>
+        <input id="txtstudentid" type="hidden" value="">
+        <div id="activitycontent" style="display:none">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <!-- Button trigger modal -->
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-plus-fill" viewBox="0 0 16 16">
+                        <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8.5 6v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0z"/>
+                      </svg>
+                </span>
+                <!--<button type="button" class="btn btn-primary me-md-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Add
+                </button>-->
+            </div>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Indicator</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="activitytype" class="form-label">Indicator</label>
+                            <input type="text" class="form-control" id="activitytype" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Description</label>
+                            <input type="text" class="form-control" id="description" >
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id ="btnadd" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <table id="gridactivities"  class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript">
+        
+        var $input = $("#txtname");
+        var uri = "https://5bb0b27c6418d70014071bb8.mockapi.io/"
+        $.get(uri+'Indicators', function( data ) {
+            $input.typeahead({
+            source: data,
+            autoSelect: true
+            });
+            $input.change(function() {
+                var current = $input.typeahead("getActive");
+                if (current) {
+                    // Some item from your model is active!
+                    $("#gridactivities > tbody").html("");
+                    if (current.name == $input.val()) {
+                        $("#txtstudentid").val(current.id);
+                        $("#activitycontent").show();
+                        $.get(uri+'Indicators', function(a) {                            
+                            if(a == null || a.lenght == 0){                            
+                                var row = '<tr>'+
+                                                '<td colspan="2">'+
+                                                    '<div class="alert alert-primary" role="alert">No Indicators</div>'+
+                                                '</td>'+
+                                            '</tr>';
+                                $("#gridactivities > tbody").html(row);
+                            }
+                            a.forEach(e => {
+                                var row ='<tr>'+
+                                            '<td>'+ e.name +'</td>'+
+                                            '<td>'+ e.description +'</td>'
+                                        +'</tr>';
+                                $('#gridactivities > tbody:last-child').append(row);
+                            });
+                        });
+                    // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
+                    } else {
+                    // This means it is only a partial match, you can either add a new item
+                    // or take the active if you don't want new items
+                    }
+                } else {
+                    // Nothing is active so it is a new value (or maybe empty value)
+                }
+            });
+    
+        });
+        
+        var $btnadd = $("#btnadd");
+        $btnadd.click(function(){
+            var description = $("#description").val();
+            var activitytype = $("#activitytype").val();
+            var status = $("#status").val();
+            if(activitytype.length > 0 &&  description.length > 0){
+                var activity = {};
+                activity.description = description;
+                activity.name = activitytype;
+                activity.createdAt =Date.now();
+                if(status == "0") {
+                    activity.status = true;
+                }
+                $.post( uri+"/ActivityType", activity);
+                var row ='<tr>'+
+                            '<td>'+ activitytype +'</td>'+
+                            '<td>'+description+'</td>'                               
+                        +'</tr>';
+                $('#gridactivities > tbody:last-child').append(row);
+            }
+            $("#activitytype").val("");
+            $("#description").val("");
+            $('#exampleModal').modal('hide');
+        });       
+    </script>

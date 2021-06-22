@@ -1,0 +1,27 @@
+id,name,type,indicator,riskfactor,successfactor
+1,Reading in Library,Library Usage,Facilities Engagement,,2
+2,Borrowed Book,Library Usage,Facilities Engagement,,1
+3,Returned Book,Library Usage,Facilities Engagement,,1
+4,On Time,Attendance,Attendance,,3
+5,Absent,Attendance,Attendance,3,
+6,Late,Attendance,Attendance,1,
+7,Booked Appointment,Advisor Interactions,Staff Engagement,,2
+8,Cancelled Appointment,Advisor Interactions,Staff Engagement,1,
+9,Adoc Interaction,Advisor Interactions,Staff Engagement,,1
+10,Never interacted,Advisor Interactions,Staff Engagement,2,
+11,Applied,Financial Aid,finances,,1
+12,Rejected,Financial Aid,finances,3,
+13,Recevied,Financial Aid,finances,,3
+14,Membership,Book Club,Student Social Engagement,,1
+15,Regular,Book Club,Student Social Engagement,,2
+16,Applied,Scholarship,finances,,1
+17,Rejected,Scholarship,finances,3,
+18,Recevied,Scholarship,finances,,1
+19,Submitted,Assignments,Assignments Engagement,,1
+20,Submitted Late,Assignments,Assignments Engagement,1,
+21,No Submitted,Assignments,Assignments Engagement,2,
+22,Noticed,Assignments,Assignments Engagement,,0
+23,Paid,College Fee,College Fee,,3
+24,Paid with Fine,College Fee,College Fee,,1
+25,Partially Paid ,College Fee,College Fee,1,
+26,Pending,College Fee,College Fee,3,

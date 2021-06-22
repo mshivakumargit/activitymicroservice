@@ -1,0 +1,9 @@
+id,name,description
+1,Library Usage,Activities in libraries
+2,Attendance,Indicates class attendance
+3,Advisor Interactions,Interaction with advisor
+4,College Fee,Indicates college fee paid or not
+5,Financial Aid,Financial Aid related activities
+6,Student Social Engagement,Indicates peer to peer interacts
+7,Scholarship,Scholarship Activities
+8,Assignments,Assignment activities
