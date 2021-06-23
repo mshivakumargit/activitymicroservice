@@ -23,6 +23,9 @@ const AlertsSchema = new mongoose.Schema({
     },
     category: {
         type: String        
+    },
+    personid: {
+        type: Number        
     }
 });
 
