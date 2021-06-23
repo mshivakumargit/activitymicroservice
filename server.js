@@ -1,8 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // set up our express app
 const app = express();
+app.use(cors());
 
 // connect to mongodb
 mongoose.connect('mongodb://mongodbserver/activitysystemdb',{useNewUrlParser:true});
