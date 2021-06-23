@@ -6,6 +6,6 @@ WORKDIR /app
 
 RUN npm install
 
-EXPOSE 9090
+EXPOSE 4000
 
 ENTRYPOINT ["node_modules/.bin/nodemon", "server.js"]
