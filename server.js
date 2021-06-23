@@ -34,5 +34,5 @@ app.use('/alerttype',alerttypesRouter);
 const alertsRouter = require('./routes/alerts');
 app.use('/alert',alertsRouter);
 // listen for requests
-app.listen(process.env.port || 4000, ()=>
+app.listen(process.env.port || 9090, ()=>
     console.log('Ready to Go!'));
