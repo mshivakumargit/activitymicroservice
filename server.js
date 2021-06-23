@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connect to mongodb
-mongoose.connect('mongodb://localhost/activitysystemdb',{useNewUrlParser:true});
+mongoose.connect('mongodb://mongodbserver/activitysystemdb',{useNewUrlParser:true});
 const db = mongoose.connection;
 db.on('error',(error)=>console.error(error));
 db.once('open',()=> console.log("connection opened"));
